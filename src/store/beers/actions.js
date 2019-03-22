@@ -5,6 +5,7 @@ export const FETCH_DATA = 'FETCH_DATA';
 export const SEARCH = 'SEARCH';
 export const CANCEL = 'CANCEL';
 export const RESET = 'RESET';
+export const RANDOM = 'RANDOM';
 
 export function fetchFulfilled(beers) {
   return {
@@ -49,5 +50,11 @@ export function search(input) {
   return {
     type: SEARCH,
     payload: input,
+  };
+}
+
+export function random() {
+  return {
+    type: RANDOM,
   };
 }

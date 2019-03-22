@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { BeerList } from './BeerList';
-import { search, cancel } from '../store/beers/actions';
+import { random, cancel } from '../store/beers/actions';
 import { setConfig } from '../store/config/actions';
 import Spinner from '../components/spinner';
 
@@ -9,7 +9,7 @@ export function Beers({
   data,
   messages,
   status,
-  search,
+  random,
   cancel,
   config,
   setConfig,
@@ -30,11 +30,9 @@ export function Beers({
             );
           })}
         </select>
-        <input
-          type="text"
-          placeholder="Search beers"
-          onChange={evt => search(evt.target.value)}
-        />
+        <button type="button" onClick={random}>
+          random
+        </button>
         {status === 'pending' && (
           <>
             <button type="button" onClick={cancel}>
@@ -69,5 +67,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { search, cancel, setConfig },
+  { random, cancel, setConfig },
 )(Beers);
