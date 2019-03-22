@@ -18,7 +18,7 @@ import { fetchFulfilled, setStatus, fetchFailed, reset } from './actions';
 const search = (apiBase, perPage, term) =>
   `${apiBase}?beer_name=${encodeURIComponent(term)}&per_page=${perPage}`;
 
-export function fetchBeersEpic(action$, state$) {
+export default function fetchBeersEpic(action$, state$) {
   return action$.pipe(
     ofType(SEARCH),
     debounceTime(500),
