@@ -6,10 +6,10 @@ import {
   reset,
   search,
   setStatus,
-} from '../../beers/actions';
+} from './actions';
 import { of } from 'rxjs';
-import { initialState } from '../../config/reducer';
-import fetchBeersEpic from '../../beers/epic';
+import { initialState } from '../config/reducer';
+import fetchBeersEpic from './epic';
 
 it('produces correct actions (success)', function() {
   const testScheduler = new TestScheduler((actual, expected) => {
